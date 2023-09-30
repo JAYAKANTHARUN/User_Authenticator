@@ -30,7 +30,6 @@ const LogIn = () => {
       alert(result.result)
     }
   }
-
   return (
     <div className='flex justify-center items-center h-[100vh]'>
       <div className='border-[1px] border-black rounded-md p-[20px] text-center sm:w-[500px] w-[300px]'>

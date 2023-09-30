@@ -31,6 +31,7 @@ app.post('/signup',async(req,res)=>{
 app.post('/login',async(req,res)=>{
     if (req.body.email && req.body.password){
         const user = await db.query('SELECT * FROM public.users WHERE email = $1 AND password = $2',[req.body.email, req.body.password]);
+        console.log(user)
         if (user.rows.length!==0){
             res.send({result:"user present"});
         }
