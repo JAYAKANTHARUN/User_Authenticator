@@ -14,7 +14,7 @@ const SignUp = () => {
   }
 
   const handlesignup = async () => {
-    let result = await fetch('http://127.0.0.1:4000/signup', {
+    let result = await fetch('https://user-authenticator.onrender.com/signup', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
