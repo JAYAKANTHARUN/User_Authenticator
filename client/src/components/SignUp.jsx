@@ -27,7 +27,7 @@ const SignUp = () => {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ username, phonenumber, gender, dob, email, password, confirmpassword }),
+      body: JSON.stringify({ username, phonenumber, gender, dob, email, password, confirmpassword, profilephoto }),
     })
     result = await result.json()
     if (result.result.command === 'INSERT') {
@@ -45,7 +45,14 @@ const SignUp = () => {
 
   const handleProfilePhotoChange = (e) => {
     const file = e.target.files[0];
-    setprofilephoto(URL.createObjectURL(file));
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        const base64Data = e.target.result;
+        setprofilephoto(base64Data);
+      };
+      reader.readAsDataURL(file);
+    }
   }
 
   const handledob = (e) => {
