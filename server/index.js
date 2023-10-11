@@ -58,6 +58,24 @@ app.post('/login',async(req,res)=>{
   }
 })
 
+app.post('/getuser', async(req,res)=>{
+  try{
+    let result = await db.query('SELECT * FROM public.users WHERE email = $1', [req.body.lsemail])
+    if (result.rows.length!==0){
+      result = result.rows[0]
+      delete result.password
+      res.send({result})
+    }
+    else{
+      res.send({result:'no profile found'})
+    }
+  }
+  catch(error){
+    console.log(error)
+    res.send({ result: 'An error occurred while processing getuser request' });
+  }
+})
+
 app.listen(4000,()=>{
     console.log("backend server is running")
 });

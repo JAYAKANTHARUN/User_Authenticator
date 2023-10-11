@@ -57,8 +57,8 @@ const SignUp = () => {
   };
 
   return (
-    <div className='flex justify-center items-start h-[180vh] color1bg '>
-      <div className='border-[2px] border-[#00ADB5] rounded-3xl sm:p-[40px] p-[20px] sm:mt-[100px] mt-[50px] text-center sm:w-[500px] w-[290px]'>
+    <div className='flex justify-center items-start h-[180vh] color4bg '>
+      <div className='color1bg border-[2px] border-[#00ADB5] rounded-3xl sm:p-[40px] p-[20px] sm:mt-[100px] mt-[50px] text-center sm:w-[600px] w-[290px]'>
         <h1 className='color3 font-poppins text-[30px] font-bold mb-[30px]'>SignUp</h1>
         <div className="flex items-center justify-center w-[80px] h-[80px] mx-auto overflow-hidden text-center">
           {profilephoto ?

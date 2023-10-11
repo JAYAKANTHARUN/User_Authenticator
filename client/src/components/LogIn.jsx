@@ -31,8 +31,8 @@ const LogIn = () => {
     }
   }
   return (
-    <div className='flex justify-center items-center h-[100vh] color1bg '>
-      <div className='border-[2px] border-[#00ADB5] rounded-3xl sm:p-[40px] p-[20px] text-center sm:w-[500px] w-[290px]'>
+    <div className='flex justify-center items-center h-[100vh] color4bg '>
+      <div className='color1bg border-[2px] border-[#00ADB5] rounded-3xl sm:p-[40px] p-[20px] text-center sm:w-[500px] w-[290px]'>
         <h1 className='color3 font-poppins text-[30px] font-bold mb-[30px]'>LogIn</h1>
         <h1 className='color3 font-poppins text-[20px] mt-[10px] '>Email</h1>
         <input className='focus:ring-[1px] focus:ring-[#00ADB5] outline-none font-poppins text-center text-[18px] border-[1px] p-[10px] sm:w-[350px] w-[250px] rounded-3xl ' value={email} onChange={(e) => { setemail(e.target.value) }} type="email" placeholder='Enter email' />
