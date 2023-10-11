@@ -12,9 +12,15 @@ const db = new Client({
     connectionString : 'postgres://jayakanth:wVHhAbpUsrvHOHP0bpPgawdeEjZ44LyD@dpg-ckemjgunpffc738su3r0-a.oregon-postgres.render.com/dbmsproject?sslmode=verify-full',
 })
 
-db.on("connect",()=>{
-    console.log("database connected")
-})
+db.connect()
+    .then(() => {
+        console.log('Database connected');
+    }
+)
+    .catch((err) => {
+        console.error('Error connecting to the database : ', err);
+    }
+)
 
 db.on("end",()=>{
     console.log("database disconnected")

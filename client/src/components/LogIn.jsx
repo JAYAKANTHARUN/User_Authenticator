@@ -31,15 +31,15 @@ const LogIn = () => {
     }
   }
   return (
-    <div className='flex justify-center items-center h-[100vh] bg-[#FFF5E0] '>
-      <div className='border-[2px] border-[#C70039] rounded-3xl sm:p-[40px] p-[20px] text-center sm:w-[500px] w-[290px]'>
-        <h1 className='text-[#141E46] font-poppins text-[30px] font-bold mb-[30px]'>LogIn</h1>
-        <h1 className='text-[#141E46] font-poppins text-[20px] mt-[10px] '>Email</h1>
-        <input className='placeholder-[#141E46] bg-[#FF6969] font-poppins text-center text-[18px] border-[1px] p-[10px] sm:w-[300px] w-[250px] rounded-3xl ' value={email} onChange={(e) => { setemail(e.target.value) }} type="email" placeholder='Enter email' />
-        <h1 className='text-[#141E46] font-poppins text-[20px] mt-[20px] '>Password</h1>
-        <input className='placeholder-[#141E46] bg-[#FF6969] font-poppins text-center text-[18px] border-[1px] p-[10px] sm:w-[300px] w-[250px] rounded-3xl ' value={password} onChange={(e) => { setpassword(e.target.value) }} type="password" placeholder='Enter password' /><br />
-        <p className='text-[#141E46] font-poppins text-[16px] cursor-pointer hover:underline my-[20px] w-[90px] mx-auto ' onClick={handlenewuser} >New User ? </p>
-        <button className='text-[#FFF5E0] font-poppins sm:text-[20px] text-[18px] bg-[#C70039] transition-all duration-100 ease-in-out hover:scale-105 w-[100px] py-[10px] rounded-3xl border-[2px] border-[#141E46] my-[10px] ' onClick={handlelogin}>LogIn</button>
+    <div className='flex justify-center items-center h-[100vh] color1bg '>
+      <div className='border-[2px] border-[#00ADB5] rounded-3xl sm:p-[40px] p-[20px] text-center sm:w-[500px] w-[290px]'>
+        <h1 className='color3 font-poppins text-[30px] font-bold mb-[30px]'>LogIn</h1>
+        <h1 className='color3 font-poppins text-[20px] mt-[10px] '>Email</h1>
+        <input className='focus:ring-[1px] focus:ring-[#00ADB5] outline-none font-poppins text-center text-[18px] border-[1px] p-[10px] sm:w-[350px] w-[250px] rounded-3xl ' value={email} onChange={(e) => { setemail(e.target.value) }} type="email" placeholder='Enter email' />
+        <h1 className='color3 font-poppins text-[20px] mt-[20px] '>Password</h1>
+        <input className='focus:ring-[1px] focus:ring-[#00ADB5] outline-none font-poppins text-center text-[18px] border-[1px] p-[10px] sm:w-[350px] w-[250px] rounded-3xl ' value={password} onChange={(e) => { setpassword(e.target.value) }} type="password" placeholder='Enter password' /><br />
+        <p className='color3 font-poppins text-[16px] cursor-pointer hover:underline hover:color2 my-[20px] w-[90px] mx-auto ' onClick={handlenewuser} >New User ? </p>
+        <button className='text-[#FFF5E0] font-poppins sm:text-[20px] text-[18px] color4bg color2 transition-all duration-100 ease-in-out hover:scale-105 hover:color3bg w-[100px] py-[10px] rounded-3xl my-[10px] ' onClick={handlelogin}>LogIn</button>
       </div>
     </div>
   )

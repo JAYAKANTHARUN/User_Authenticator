@@ -30,25 +30,32 @@ app.post('/signup',async(req,res)=>{
         else {
           res.send({ result: 'enter valid details' });
         }
-      } catch (error) {
+      }
+      catch (error) {
         console.log(error)
-        res.send({ result: 'An error occurred while processing your request' });
+        res.send({ result: 'An error occurred while processing signup request' });
       }
 })
 
 app.post('/login',async(req,res)=>{
+  try {
     if (req.body.email && req.body.password){
-        const user = await db.query('SELECT * FROM public.users WHERE email = $1 AND password = $2',[req.body.email, req.body.password]);
-        if (user.rows.length!==0){
-            res.send({result:"user present"});
-        }
-        else{
-            res.send({result:"no user found"})
-        }
+      const user = await db.query('SELECT * FROM public.users WHERE email = $1 AND password = $2',[req.body.email, req.body.password]);
+      if (user.rows.length!==0){
+          res.send({result:"user present"});
+      }
+      else{
+          res.send({result:"no user found"})
+      }
     }
     else{
         res.send({result:"enter valid details"})
     }
+  }
+  catch (error) {
+    console.log(error)
+    res.send({ result: 'An error occurred while processing login request' });
+  }
 })
 
 app.listen(4000,()=>{
