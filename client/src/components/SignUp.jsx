@@ -15,7 +15,7 @@ const SignUp = () => {
   const [profilephoto, setprofilephoto] = useState(null)
   const [phonenumber, setphonenumber] = useState('')
   const [gender, setgender] = useState('male')
-  const [dob,setdob] = useState('')
+  const [dob, setdob] = useState('')
 
   const handlehaveaccount = () => {
     navigate('/login')
@@ -44,14 +44,13 @@ const SignUp = () => {
   }
 
   const handleProfilePhotoChange = (e) => {
-    const file = e.target.files[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onload = (e) => {
-        const base64Data = e.target.result;
-        setprofilephoto(base64Data);
-      };
-      reader.readAsDataURL(file);
+    var reader = new FileReader()
+    reader.readAsDataURL(e.target.files[0])
+    reader.onload = () => {
+      setprofilephoto(reader.result)
+    }
+    reader.onerror = error => {
+      console.log(error)
     }
   }
 
