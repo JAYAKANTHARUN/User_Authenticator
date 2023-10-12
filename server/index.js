@@ -63,7 +63,6 @@ app.post('/getuser', async(req,res)=>{
     let result = await db.query('SELECT * FROM public.users WHERE email = $1', [req.body.lsemail])
     if (result.rows.length!==0){
       result = result.rows[0]
-      delete result.password
       res.send({result})
     }
     else{
@@ -74,6 +73,29 @@ app.post('/getuser', async(req,res)=>{
     console.log(error)
     res.send({ result: 'An error occurred while processing getuser request' });
   }
+})
+
+app.post('/update',async(req,res)=>{
+  try {
+      const isValidEmail = emailRegex.test(req.body.email);
+      if (req.body.username && req.body.phonenumber && req.body.gender && req.body.dob && req.body.email  && req.body.profilephoto && isValidEmail) {
+        const user = await db.query('SELECT * FROM public.users WHERE email = $1', [req.body.email]);
+        if (user.rows.length===0){
+          let result = await db.query('UPDATE public.users SET username = $1, phonenumber = $2, gender = $3, dob = $4, email = $5, profilephoto = $6 WHERE email = $7', [req.body.username, req.body.phonenumber, req.body.gender, req.body.dob, req.body.email, req.body.profilephoto, req.body.oldemail])
+          res.send({ result })
+        }
+        else {
+          res.send({ result: 'email already used' });
+        }
+      }
+      else {
+        res.send({ result: 'enter valid details' });
+      }
+    }
+    catch (error) {
+      console.log(error)
+      res.send({ result: 'An error occurred while processing signup request' });
+    }
 })
 
 app.listen(4000,()=>{

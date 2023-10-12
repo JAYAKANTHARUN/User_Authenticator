@@ -29,6 +29,10 @@ const Home = () => {
         setuser(user)
     }
 
+    const handleupdateprofile = () => {
+        navigate('/updateprofile')
+    }
+
     useEffect(() => {
         getuser()
     }, [])
@@ -61,7 +65,7 @@ const Home = () => {
                     </div>
                 </div>
                 <div>
-                    <button className='text-[18px] border-[1px] color4bg color2 rounded-3xl py-[10px] px-[20px] mx-[30px] my-[20px]  hover:color3bg hover:scale-105 transition-all duration-300 ease-in-out '>Update Profile</button>
+                    <button onClick={handleupdateprofile} className='text-[18px] border-[1px] color4bg color2 rounded-3xl py-[10px] px-[20px] mx-[30px] my-[20px]  hover:color3bg hover:scale-105 transition-all duration-300 ease-in-out '>Update Profile</button>
                     <button className='text-[18px] border-[1px] color4bg color2 rounded-3xl py-[10px] px-[20px] mx-[30px] my-[20px]  hover:color3bg hover:scale-105 transition-all duration-300 ease-in-out '>Change Password</button>
                 </div>
                 <button className='text-[18px] border-[1px] color4bg color2 rounded-3xl py-[10px] px-[20px] mx-[30px] my-[10px] hover:color3bg hover:scale-105 transition-all duration-300 ease-in-out ' onClick={handlelogout}>Logout</button>
