@@ -91,6 +91,28 @@ app.post('/update',async(req,res)=>{
     }
 })
 
+app.post('/changepassword',async(req,res)=>{
+  try {
+      if (req.body.newpassword && req.body.oldpassword && req.body.confirmpassword && req.body.newpassword===req.body.confirmpassword) {
+          const check = await db.query('SELECT * FROM public.users WHERE email = $1',[req.body.email])
+          if (check.rows[0].password===req.body.oldpassword){
+            const result = await db.query('UPDATE public.users SET password = $1 WHERE email = $2', [req.body.newpassword, req.body.email]);
+            res.send({ result });
+          }
+          else{
+            res.send({ result: 'invalid password' })
+          }
+      }
+      else {
+        res.send({ result: 'enter valid details' })
+      }
+    }
+    catch (error) {
+      console.log(error)
+      res.send({ result: 'An error occurred while processing signup request' });
+    }
+})
+
 app.listen(4000,()=>{
     console.log("backend server is running")
 });

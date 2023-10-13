@@ -32,6 +32,9 @@ const Home = () => {
     const handleupdateprofile = () => {
         navigate('/updateprofile')
     }
+    const handlechangepassword = () => {
+        navigate('/changepassword')
+    }
 
     useEffect(() => {
         const getuserdetails = async() => {
@@ -69,7 +72,7 @@ const Home = () => {
                 </div>
                 <div>
                     <button onClick={handleupdateprofile} className='sm:text-[18px] text-[15px] border-[1px] color4bg color2 rounded-3xl sm:py-[10px] py-[8px] sm:px-[20px] px-[10px] sm:mx-[30px] mx-[10px] my-[20px]  hover:color3bg hover:scale-105 transition-all duration-300 ease-in-out '>Update Profile</button>
-                    <button className='sm:text-[18px] text-[15px] border-[1px] color4bg color2 rounded-3xl sm:py-[10px] py-[8px] sm:px-[20px] px-[10px] sm:mx-[30px] mx-[10px] my-[20px]  hover:color3bg hover:scale-105 transition-all duration-300 ease-in-out '>Change Password</button>
+                    <button onClick={handlechangepassword} className='sm:text-[18px] text-[15px] border-[1px] color4bg color2 rounded-3xl sm:py-[10px] py-[8px] sm:px-[20px] px-[10px] sm:mx-[30px] mx-[10px] my-[20px]  hover:color3bg hover:scale-105 transition-all duration-300 ease-in-out '>Change Password</button>
                 </div>
                 <button className='sm:text-[18px] text-[16px] border-[1px] color4bg color2 rounded-3xl sm:py-[10px] py-[8px] sm:px-[20px] px-[12px] sm:mx-[30px] mx-[10px] hover:color3bg hover:scale-105 transition-all duration-300 ease-in-out ' onClick={handlelogout}>Logout</button>
             </div>

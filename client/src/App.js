@@ -7,6 +7,7 @@ import PrivateIn from './components/PrivateIn';
 import PrivateOut from './components/PrivateOut';
 import UpdateProfile from './components/UpdateProfile';
 import Landing from './components/Landing';
+import ChangePassword from './components/ChangePassword';
 
 import { BrowserRouter , Routes , Route } from 'react-router-dom'
 
@@ -18,6 +19,7 @@ function App() {
         <Route element={<PrivateIn />}>
           <Route path='/home' element={<Home/>} />
           <Route path='/updateprofile' element={<UpdateProfile/>} />
+          <Route path='/changepassword' element={<ChangePassword/>} />
         </Route>
         <Route element={<PrivateOut />}>
           <Route path='/login' element={<LogIn/>} />
