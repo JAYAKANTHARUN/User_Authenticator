@@ -71,9 +71,9 @@ const SignUp = () => {
           <span className="color4bg color2 transition-all duration-300 ease-in-out hover:color3bg text-[#FFF5E0] py-2 px-4 rounded-full cursor-pointer">Upload Photo</span>
         </label>
         <h1 className='color3 font-poppins text-[20px] mt-[20px] '>Username</h1>
-        <input className='focus:ring-[1px] focus:ring-[#00ADB5] outline-none font-poppins text-center text-[18px] border-[1px] p-[10px] sm:w-[350px] w-[250px] rounded-3xl ' value={username} onChange={(e) => { setusername(e.target.value) }} type="email" placeholder='Enter username' />
+        <input className='focus:ring-[1px] focus:ring-[#00ADB5] outline-none font-poppins text-center text-[18px] border-[1px] p-[10px] sm:w-[350px] w-[250px] rounded-3xl ' value={username} onChange={(e) => { setusername(e.target.value) }} type="text" placeholder='Enter username' />
         <h1 className='color3 font-poppins text-[20px] mt-[20px] '>Phone Number</h1>
-        <input className='focus:ring-[1px] focus:ring-[#00ADB5] outline-none font-poppins text-center text-[18px] border-[1px] p-[10px] sm:w-[350px] w-[250px] rounded-3xl ' value={phonenumber} onChange={(e) => { setphonenumber(e.target.value) }} type="email" placeholder='Enter phone number' /> <br />
+        <input className='focus:ring-[1px] focus:ring-[#00ADB5] outline-none font-poppins text-center text-[18px] border-[1px] p-[10px] sm:w-[350px] w-[250px] rounded-3xl ' value={phonenumber} onChange={(e) => { setphonenumber(e.target.value) }} type="text" placeholder='Enter phone number' /> <br />
         <h1 className='color3 font-poppins text-[20px] mt-[20px] '>Gender</h1>
         <input type="radio" id="male" name="gender" value="male" className="mr-1" checked={gender === 'male'} onChange={handleGenderChange} />
         <label htmlFor="male" className="color3 font-poppins mr-4">Male</label>

@@ -77,19 +77,12 @@ app.post('/getuser', async(req,res)=>{
 
 app.post('/update',async(req,res)=>{
   try {
-      const isValidEmail = emailRegex.test(req.body.email);
-      if (req.body.username && req.body.phonenumber && req.body.gender && req.body.dob && req.body.email  && req.body.profilephoto && isValidEmail) {
-        const user = await db.query('SELECT * FROM public.users WHERE email = $1', [req.body.email]);
-        if (user.rows.length===0){
-          let result = await db.query('UPDATE public.users SET username = $1, phonenumber = $2, gender = $3, dob = $4, email = $5, profilephoto = $6 WHERE email = $7', [req.body.username, req.body.phonenumber, req.body.gender, req.body.dob, req.body.email, req.body.profilephoto, req.body.oldemail])
+      if (req.body.username && req.body.phonenumber && req.body.gender && req.body.dob && req.body.profilephoto) {
+          let result = await db.query('UPDATE public.users SET username = $1, phonenumber = $2, gender = $3, dob = $4, profilephoto = $5 WHERE email = $6', [req.body.username, req.body.phonenumber, req.body.gender, req.body.dob, req.body.profilephoto, req.body.email])
           res.send({ result })
-        }
-        else {
-          res.send({ result: 'email already used' });
-        }
       }
       else {
-        res.send({ result: 'enter valid details' });
+        res.send({ result: 'enter valid details' })
       }
     }
     catch (error) {
