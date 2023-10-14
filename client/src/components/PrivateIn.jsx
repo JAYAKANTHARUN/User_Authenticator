@@ -6,7 +6,7 @@ const PrivateIn = () => {
 
     const user = localStorage.getItem('user');
 
-    return user ? <Outlet /> : <Navigate to='/' />
+    return user ? <Outlet /> : <Navigate to='/login' />
 }
 
 export default PrivateIn

@@ -8,6 +8,10 @@ import PrivateOut from './components/PrivateOut';
 import UpdateProfile from './components/UpdateProfile';
 import Landing from './components/Landing';
 import ChangePassword from './components/ChangePassword';
+import Admin from './components/Admin';
+import PrivateAdminIn from './components/PrivateAdminIn';
+import PrivateAdminOut from './components/PrivateAdminOut';
+import AdminHome from './components/AdminHome';
 
 import { BrowserRouter , Routes , Route } from 'react-router-dom'
 
@@ -24,7 +28,13 @@ function App() {
         <Route element={<PrivateOut />}>
           <Route path='/login' element={<LogIn/>} />
           <Route path='/signup' element={<SignUp/>} />
-        </Route>        
+        </Route>    
+        <Route element={<PrivateAdminIn />}>
+          <Route path='/adminhome' element={<AdminHome/>} />
+        </Route> 
+        <Route element={<PrivateAdminOut />}>
+          <Route path='/admin' element={<Admin/>} />
+        </Route>     
       </Routes>
     </BrowserRouter>
   );

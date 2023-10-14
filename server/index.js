@@ -113,6 +113,27 @@ app.post('/changepassword',async(req,res)=>{
     }
 })
 
+app.post('/adminlogin',async(req,res)=>{
+  try {
+    if (req.body.username && req.body.password){
+      const admin = await db.query('SELECT * FROM public.admins WHERE username = $1 AND password = $2',[req.body.username, req.body.password]);
+      if (admin.rows.length!==0){
+          res.send({result:"admin present"});
+      }
+      else{
+          res.send({result:"no admin found"})
+      }
+    }
+    else{
+        res.send({result:"enter valid details"})
+    }
+  }
+  catch (error) {
+    console.log(error)
+    res.send({ result: 'An error occurred while processing login request' });
+  }
+})
+
 app.listen(4000,()=>{
     console.log("backend server is running")
 });
