@@ -20,7 +20,7 @@ const ChangePassword = () => {
         })
         result = await result.json()
         if (result.result.command === 'UPDATE') {
-            localStorage.clear()
+            localStorage.removeItem("user")
             localStorage.setItem("user", email)
             navigate('/home')
         }

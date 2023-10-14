@@ -4,8 +4,8 @@ const app = express();
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 
-const bodyParser = require('body-parser');
-app.use(bodyParser.json({ limit: '10mb' }));
+// const bodyParser = require('body-parser');
+// app.use(bodyParser.json({ limit: '10mb' }));
 
 const cors = require('cors')
 app.use(cors())
@@ -131,6 +131,47 @@ app.post('/adminlogin',async(req,res)=>{
   catch (error) {
     console.log(error)
     res.send({ result: 'An error occurred while processing login request' });
+  }
+})
+
+app.post('/getalluser', async(req,res)=>{
+  try{
+    let result = await db.query('SELECT * FROM public.users')
+    if (result.rows.length!==0){
+      result = result.rows
+      res.send({result})
+    }
+    else{
+      res.send({result:'no users found'})
+    }
+  }
+  catch(error){
+    console.log(error)
+    res.send({ result: 'An error occurred while processing getuser request' });
+  }
+})
+
+app.post('/removeuser/:id',async(req,res)=>{
+  try{
+    let userid = req.params.id
+    let result = await db.query('DELETE FROM public.users WHERE userid = $1',[userid])
+    res.send({ result:"user removed" })
+  }
+  catch(error){
+    console.log(error)
+    res.send({ result: 'An error occurred while processing getuser request' });
+  }
+})
+
+app.get('/search/:key', async (req, res) => {
+  try {
+    const key = `%${req.params.key}%`
+    const result = await db.query(`SELECT * FROM public.users WHERE username ILIKE $1 OR phonenumber ILIKE $1 OR gender ILIKE $1 OR dob ILIKE $1 OR email ILIKE $1`, [key]);
+    res.send(result.rows);
+  }
+  catch (error) {
+    console.error(error);
+    res.send({ result: "An error occurred while searching for products" });
   }
 })
 
