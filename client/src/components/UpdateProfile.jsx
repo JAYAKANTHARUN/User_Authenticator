@@ -36,7 +36,7 @@ const UpdateProfile = () => {
         let lsemail = localStorage.getItem('user')
         setemail(lsemail)
 
-        let user = await fetch('http://127.0.0.1:4000/getuser', {
+        let user = await fetch('https://user-authenticator-server.onrender.com/getuser', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -53,7 +53,7 @@ const UpdateProfile = () => {
     }
 
     const handleupdate = async () => {
-        let result = await fetch('http://127.0.0.1:4000/update', {
+        let result = await fetch('https://user-authenticator-server.onrender.com/update', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

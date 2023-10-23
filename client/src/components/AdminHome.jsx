@@ -9,7 +9,7 @@ const AdminHome = () => {
   const [alluser, setalluser] = useState([])
 
   const getalluser = async () => {
-    let user = await fetch('http://127.0.0.1:4000/getalluser', {
+    let user = await fetch('https://user-authenticator-server.onrender.com/getalluser', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -27,7 +27,7 @@ const AdminHome = () => {
 
   const handleremoveuser = async (userid) => {
     if (window.confirm("Are You Sure?")) {
-      let result = await fetch(`http://127.0.0.1:4000/removeuser/${userid}`, {
+      let result = await fetch(`https://user-authenticator-server.onrender.com/removeuser/${userid}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -43,7 +43,7 @@ const AdminHome = () => {
   const searchuser = async (e) => {
     let key = e.target.value
     if (key) {
-      let result = await fetch(`http://127.0.0.1:4000/search/${key}`, {
+      let result = await fetch(`https://user-authenticator-server.onrender.com/search/${key}`, {
         headers: {
           'Content-Type': 'application/json',
         }
